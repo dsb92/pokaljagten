@@ -1,0 +1,285 @@
+
+PRJ1_Lys.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000156  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000006cc  00000000  00000000  000001ac  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000085  00000000  00000000  00000878  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 000000a0  00000000  00000000  00000900  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000067e  00000000  00000000  000009a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000001c0  00000000  00000000  0000101e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000044b  00000000  00000000  000011de  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000000a8  00000000  00000000  0000162c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000199  00000000  00000000  000016d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 e5       	ldi	r30, 0x56	; 86
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 36       	cpi	r26, 0x60	; 96
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e6       	ldi	r26, 0x60	; 96
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a0 36       	cpi	r26, 0x60	; 96
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 6d 00 	call	0xda	; 0xda <main>
+  8a:	0c 94 a9 00 	jmp	0x152	; 0x152 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <initFrontLEDPort>:
+
+#define MAX_LED 7
+
+void initFrontLEDPort()
+{
+	DDRA |= 0b01000000;		//PINA, 6 sat til udgang
+  92:	d6 9a       	sbi	0x1a, 6	; 26
+	
+	unsigned char patternA = 0b10111111;
+	PORTA = PINA & patternA;			//Det sikres at PINA 6 er sat til 0
+  94:	89 b3       	in	r24, 0x19	; 25
+  96:	8f 7b       	andi	r24, 0xBF	; 191
+  98:	8b bb       	out	0x1b, r24	; 27
+}
+  9a:	08 95       	ret
+
+0000009c <initBackLEDPort>:
+
+void initBackLEDPort()
+{
+	DDRB |= 0b00001000; //PINB, 3 sat til udgang
+  9c:	bb 9a       	sbi	0x17, 3	; 23
+	
+	unsigned char patternB = 0b11110111;
+	PORTB = PINB & patternB;			//Det sikres at PINA 3 er sat til 0
+  9e:	86 b3       	in	r24, 0x16	; 22
+  a0:	87 7f       	andi	r24, 0xF7	; 247
+  a2:	88 bb       	out	0x18, r24	; 24
+	
+	TCCR0 = 0b01100010;		//Timer0 ikke-fast PWM mode, compare match set when up counting
+  a4:	82 e6       	ldi	r24, 0x62	; 98
+  a6:	83 bf       	out	0x33, r24	; 51
+	
+}
+  a8:	08 95       	ret
+
+000000aa <allLightsOn>:
+
+void allLightsOn()
+{
+	unsigned char patternA = 0b01000000;		//BIT 6, active high
+	PORTA = PINA ^ patternA;
+  aa:	99 b3       	in	r25, 0x19	; 25
+  ac:	80 e4       	ldi	r24, 0x40	; 64
+  ae:	89 27       	eor	r24, r25
+  b0:	8b bb       	out	0x1b, r24	; 27
+		
+	OCR0 = 26;		//10% duty cycle
+  b2:	8a e1       	ldi	r24, 0x1A	; 26
+  b4:	8c bf       	out	0x3c, r24	; 60
+}
+  b6:	08 95       	ret
+
+000000b8 <allLightsOff>:
+
+void allLightsOff()
+{
+	unsigned char patternB = 0b11110111;
+	PORTB = PINB & patternB;				//Bit 3 sættes til 0
+  b8:	86 b3       	in	r24, 0x16	; 22
+  ba:	87 7f       	andi	r24, 0xF7	; 247
+  bc:	88 bb       	out	0x18, r24	; 24
+	
+	OCR0 = 0;		//0% duty cycle, sluk
+  be:	1c be       	out	0x3c, r1	; 60
+}
+  c0:	08 95       	ret
+
+000000c2 <brakeLightOn>:
+
+void brakeLightOn()
+{
+	OCR0 = 255;		//100%  dutycycle
+  c2:	8f ef       	ldi	r24, 0xFF	; 255
+  c4:	8c bf       	out	0x3c, r24	; 60
+}
+  c6:	08 95       	ret
+
+000000c8 <brakeLightOff>:
+
+void brakeLightOff()
+{
+	OCR0 =26;		//10% duty cycle;
+  c8:	8a e1       	ldi	r24, 0x1A	; 26
+  ca:	8c bf       	out	0x3c, r24	; 60
+}
+  cc:	08 95       	ret
+
+000000ce <brakeLightNormal>:
+
+void brakeLightNormal()
+{
+	TCCR0 = 0b00000010;
+  ce:	82 e0       	ldi	r24, 0x02	; 2
+  d0:	83 bf       	out	0x33, r24	; 51
+	unsigned char patternB = 0b00001000;		//BIT 3, active high
+	PORTB = PINB | patternB;
+  d2:	86 b3       	in	r24, 0x16	; 22
+  d4:	88 60       	ori	r24, 0x08	; 8
+  d6:	88 bb       	out	0x18, r24	; 24
+  d8:	08 95       	ret
+
+000000da <main>:
+#include <avr/io.h>
+#include <util/delay.h>
+
+int main(void)		//Test af Forlys og Baglys
+{
+    initBackLEDPort();
+  da:	0e 94 4e 00 	call	0x9c	; 0x9c <initBackLEDPort>
+	initFrontLEDPort();
+  de:	0e 94 49 00 	call	0x92	; 0x92 <initFrontLEDPort>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  e2:	8f ef       	ldi	r24, 0xFF	; 255
+  e4:	9f e7       	ldi	r25, 0x7F	; 127
+  e6:	a6 e1       	ldi	r26, 0x16	; 22
+  e8:	81 50       	subi	r24, 0x01	; 1
+  ea:	90 40       	sbci	r25, 0x00	; 0
+  ec:	a0 40       	sbci	r26, 0x00	; 0
+  ee:	e1 f7       	brne	.-8      	; 0xe8 <main+0xe>
+  f0:	00 c0       	rjmp	.+0      	; 0xf2 <main+0x18>
+  f2:	00 00       	nop
+	
+	_delay_ms(2000);
+	
+	allLightsOn();		//Test alle lys tændt
+  f4:	0e 94 55 00 	call	0xaa	; 0xaa <allLightsOn>
+  f8:	8f ef       	ldi	r24, 0xFF	; 255
+  fa:	9f eb       	ldi	r25, 0xBF	; 191
+  fc:	a1 e2       	ldi	r26, 0x21	; 33
+  fe:	81 50       	subi	r24, 0x01	; 1
+ 100:	90 40       	sbci	r25, 0x00	; 0
+ 102:	a0 40       	sbci	r26, 0x00	; 0
+ 104:	e1 f7       	brne	.-8      	; 0xfe <main+0x24>
+ 106:	00 c0       	rjmp	.+0      	; 0x108 <main+0x2e>
+ 108:	00 00       	nop
+	
+	_delay_ms(3000);
+	
+	brakeLightOn();		//bremselys test tænd
+ 10a:	0e 94 61 00 	call	0xc2	; 0xc2 <brakeLightOn>
+ 10e:	8f ef       	ldi	r24, 0xFF	; 255
+ 110:	9f eb       	ldi	r25, 0xBF	; 191
+ 112:	a1 e2       	ldi	r26, 0x21	; 33
+ 114:	81 50       	subi	r24, 0x01	; 1
+ 116:	90 40       	sbci	r25, 0x00	; 0
+ 118:	a0 40       	sbci	r26, 0x00	; 0
+ 11a:	e1 f7       	brne	.-8      	; 0x114 <main+0x3a>
+ 11c:	00 c0       	rjmp	.+0      	; 0x11e <main+0x44>
+ 11e:	00 00       	nop
+	
+	_delay_ms(3000);
+	
+	brakeLightOff();	//bremselys test sluk
+ 120:	0e 94 64 00 	call	0xc8	; 0xc8 <brakeLightOff>
+ 124:	8f ef       	ldi	r24, 0xFF	; 255
+ 126:	9f eb       	ldi	r25, 0xBF	; 191
+ 128:	a1 e2       	ldi	r26, 0x21	; 33
+ 12a:	81 50       	subi	r24, 0x01	; 1
+ 12c:	90 40       	sbci	r25, 0x00	; 0
+ 12e:	a0 40       	sbci	r26, 0x00	; 0
+ 130:	e1 f7       	brne	.-8      	; 0x12a <main+0x50>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <main+0x5a>
+ 134:	00 00       	nop
+	
+	_delay_ms(3000);
+	
+	allLightsOff();		//Test alle lys sluk
+ 136:	0e 94 5c 00 	call	0xb8	; 0xb8 <allLightsOff>
+ 13a:	8f ef       	ldi	r24, 0xFF	; 255
+ 13c:	9f eb       	ldi	r25, 0xBF	; 191
+ 13e:	a1 e2       	ldi	r26, 0x21	; 33
+ 140:	81 50       	subi	r24, 0x01	; 1
+ 142:	90 40       	sbci	r25, 0x00	; 0
+ 144:	a0 40       	sbci	r26, 0x00	; 0
+ 146:	e1 f7       	brne	.-8      	; 0x140 <main+0x66>
+ 148:	00 c0       	rjmp	.+0      	; 0x14a <main+0x70>
+ 14a:	00 00       	nop
+	
+	_delay_ms(3000);
+	
+	brakeLightNormal();
+ 14c:	0e 94 67 00 	call	0xce	; 0xce <brakeLightNormal>
+ 150:	ff cf       	rjmp	.-2      	; 0x150 <main+0x76>
+
+00000152 <_exit>:
+ 152:	f8 94       	cli
+
+00000154 <__stop_program>:
+ 154:	ff cf       	rjmp	.-2      	; 0x154 <__stop_program>

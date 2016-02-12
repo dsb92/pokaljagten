@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Motorstyring", "Motorstyring\Motorstyring.cproj", "{9DD306F0-566E-46CC-B141-9CF24A1A6CCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DD306F0-566E-46CC-B141-9CF24A1A6CCF}.Debug|AVR.ActiveCfg = Debug|AVR
+		{9DD306F0-566E-46CC-B141-9CF24A1A6CCF}.Debug|AVR.Build.0 = Debug|AVR
+		{9DD306F0-566E-46CC-B141-9CF24A1A6CCF}.Release|AVR.ActiveCfg = Release|AVR
+		{9DD306F0-566E-46CC-B141-9CF24A1A6CCF}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

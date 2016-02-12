@@ -1,0 +1,702 @@
+
+Fjernbetjening.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000035e  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000954  00000000  00000000  000003b4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      0000014d  00000000  00000000  00000d08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000120  00000000  00000000  00000e58  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000860  00000000  00000000  00000f78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000002c0  00000000  00000000  000017d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000005fb  00000000  00000000  00001a98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  0000016c  00000000  00000000  00002094  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000001ae  00000000  00000000  00002200  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000020b  00000000  00000000  000023ae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee e5       	ldi	r30, 0x5E	; 94
+  68:	f3 e0       	ldi	r31, 0x03	; 3
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 36       	cpi	r26, 0x60	; 96
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e6       	ldi	r26, 0x60	; 96
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a0 36       	cpi	r26, 0x60	; 96
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 49 00 	call	0x92	; 0x92 <main>
+  8a:	0c 94 ad 01 	jmp	0x35a	; 0x35a <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <main>:
+
+#define XTAL 3686400
+
+int main(void)
+{
+	InitUART( 9800, 8);		//initierer uart
+  92:	68 e4       	ldi	r22, 0x48	; 72
+  94:	76 e2       	ldi	r23, 0x26	; 38
+  96:	80 e0       	ldi	r24, 0x00	; 0
+  98:	90 e0       	ldi	r25, 0x00	; 0
+  9a:	48 e0       	ldi	r20, 0x08	; 8
+  9c:	0e 94 b2 00 	call	0x164	; 0x164 <InitUART>
+	switchOn( 0 );			//tÃ¦nder for switch SW0 - Start knap
+  a0:	80 e0       	ldi	r24, 0x00	; 0
+  a2:	0e 94 a0 00 	call	0x140	; 0x140 <switchOn>
+	switchOn( 7 );			//tÃ¦nder for switch SW7 - Reset tÃ¦ller knap
+  a6:	87 e0       	ldi	r24, 0x07	; 7
+  a8:	0e 94 a0 00 	call	0x140	; 0x140 <switchOn>
+	
+		
+    while(1)
+    {
+		if( switchStatus() == 0b00000001 )
+  ac:	0e 94 9d 00 	call	0x13a	; 0x13a <switchStatus>
+  b0:	81 30       	cpi	r24, 0x01	; 1
+  b2:	19 f4       	brne	.+6      	; 0xba <main+0x28>
+		{
+			SendChar( 'S' );		//sender S for start
+  b4:	83 e5       	ldi	r24, 0x53	; 83
+  b6:	0e 94 15 01 	call	0x22a	; 0x22a <SendChar>
+		}
+		 
+		if( switchStatus() == 0b10000000 )
+  ba:	0e 94 9d 00 	call	0x13a	; 0x13a <switchStatus>
+  be:	80 38       	cpi	r24, 0x80	; 128
+  c0:	a9 f7       	brne	.-22     	; 0xac <main+0x1a>
+		{
+			SendChar( 'R' );		//sender R for reset
+  c2:	82 e5       	ldi	r24, 0x52	; 82
+  c4:	0e 94 15 01 	call	0x22a	; 0x22a <SendChar>
+  c8:	f1 cf       	rjmp	.-30     	; 0xac <main+0x1a>
+
+000000ca <initLEDport>:
+
+#define MAX_LED_NR 7
+
+void initLEDport()
+{
+	DDRC = 0xFF; 
+  ca:	8f ef       	ldi	r24, 0xFF	; 255
+  cc:	84 bb       	out	0x14, r24	; 20
+	PORTC = 0xFF;
+  ce:	85 bb       	out	0x15, r24	; 21
+}
+  d0:	08 95       	ret
+
+000000d2 <writeAllLEDs>:
+void writeAllLEDs(unsigned char pattern)
+{
+  // Hent parameteren, vend alle bit, og skriv til lysdioderne
+  // Bittene skal vendes, da HW er indrettet, 
+  // så et 0 vil tænde en lysdiode
+  PORTC = ~pattern;   
+  d2:	80 95       	com	r24
+  d4:	85 bb       	out	0x15, r24	; 21
+}
+  d6:	08 95       	ret
+
+000000d8 <turnOnLED>:
+void turnOnLED(unsigned char led_nr)
+{
+// Lokal variabel
+unsigned char mask;
+  // Vi skal kun lave noget, hvis led_nr < 8
+  if (led_nr <= MAX_LED_NR)
+  d8:	88 30       	cpi	r24, 0x08	; 8
+  da:	68 f4       	brcc	.+26     	; 0xf6 <turnOnLED+0x1e>
+  {
+    // Dan maske på basis af parameteren (led_nr)
+    mask = ~(0b00000001 << led_nr);
+    // Tænd den aktuelle lysdiode (de andre ændres ikke)
+    PORTC = PINC & mask;
+  dc:	43 b3       	in	r20, 0x13	; 19
+unsigned char mask;
+  // Vi skal kun lave noget, hvis led_nr < 8
+  if (led_nr <= MAX_LED_NR)
+  {
+    // Dan maske på basis af parameteren (led_nr)
+    mask = ~(0b00000001 << led_nr);
+  de:	21 e0       	ldi	r18, 0x01	; 1
+  e0:	30 e0       	ldi	r19, 0x00	; 0
+  e2:	b9 01       	movw	r22, r18
+  e4:	02 c0       	rjmp	.+4      	; 0xea <turnOnLED+0x12>
+  e6:	66 0f       	add	r22, r22
+  e8:	77 1f       	adc	r23, r23
+  ea:	8a 95       	dec	r24
+  ec:	e2 f7       	brpl	.-8      	; 0xe6 <turnOnLED+0xe>
+  ee:	cb 01       	movw	r24, r22
+  f0:	80 95       	com	r24
+    // Tænd den aktuelle lysdiode (de andre ændres ikke)
+    PORTC = PINC & mask;
+  f2:	84 23       	and	r24, r20
+  f4:	85 bb       	out	0x15, r24	; 21
+  f6:	08 95       	ret
+
+000000f8 <turnOffLED>:
+void turnOffLED(unsigned char led_nr)
+{
+	// Lokal variabel
+unsigned char mask;
+  // Vi skal kun lave noget, hvis led_nr < 8
+  if (led_nr <= MAX_LED_NR)
+  f8:	88 30       	cpi	r24, 0x08	; 8
+  fa:	68 f4       	brcc	.+26     	; 0x116 <turnOffLED+0x1e>
+  {
+    // Dan maske på basis af parameteren (led_nr)
+    mask = ~(0b11111110 << led_nr);
+    // Sluk den aktuelle lysdiode (de andre ændres ikke)
+    PORTC = PINC | mask;
+  fc:	43 b3       	in	r20, 0x13	; 19
+unsigned char mask;
+  // Vi skal kun lave noget, hvis led_nr < 8
+  if (led_nr <= MAX_LED_NR)
+  {
+    // Dan maske på basis af parameteren (led_nr)
+    mask = ~(0b11111110 << led_nr);
+  fe:	2e ef       	ldi	r18, 0xFE	; 254
+ 100:	30 e0       	ldi	r19, 0x00	; 0
+ 102:	b9 01       	movw	r22, r18
+ 104:	02 c0       	rjmp	.+4      	; 0x10a <turnOffLED+0x12>
+ 106:	66 0f       	add	r22, r22
+ 108:	77 1f       	adc	r23, r23
+ 10a:	8a 95       	dec	r24
+ 10c:	e2 f7       	brpl	.-8      	; 0x106 <turnOffLED+0xe>
+ 10e:	cb 01       	movw	r24, r22
+ 110:	80 95       	com	r24
+    // Sluk den aktuelle lysdiode (de andre ændres ikke)
+    PORTC = PINC | mask;
+ 112:	84 2b       	or	r24, r20
+ 114:	85 bb       	out	0x15, r24	; 21
+ 116:	08 95       	ret
+
+00000118 <toggleLED>:
+void toggleLED(unsigned char led_nr)
+{
+	// Lokal variabel
+	unsigned char mask;
+	// Vi skal kun lave noget, hvis led_nr < 8
+	if (led_nr <= MAX_LED_NR)
+ 118:	88 30       	cpi	r24, 0x08	; 8
+ 11a:	48 f4       	brcc	.+18     	; 0x12e <toggleLED+0x16>
+	{
+		 mask = (0b00000001) << led_nr;
+ 11c:	21 e0       	ldi	r18, 0x01	; 1
+ 11e:	30 e0       	ldi	r19, 0x00	; 0
+ 120:	a9 01       	movw	r20, r18
+ 122:	02 c0       	rjmp	.+4      	; 0x128 <toggleLED+0x10>
+ 124:	44 0f       	add	r20, r20
+ 126:	55 1f       	adc	r21, r21
+ 128:	8a 95       	dec	r24
+ 12a:	e2 f7       	brpl	.-8      	; 0x124 <toggleLED+0xc>
+ 12c:	94 2f       	mov	r25, r20
+	}		
+	PORTC = PINC ^ mask;
+ 12e:	83 b3       	in	r24, 0x13	; 19
+ 130:	98 27       	eor	r25, r24
+ 132:	95 bb       	out	0x15, r25	; 21
+}
+ 134:	08 95       	ret
+
+00000136 <initSwitchPort>:
+#define MAX_SWITCH_NR 7
+
+// Klargør switch-porten
+void initSwitchPort()
+{
+	DDRA = 0x00;
+ 136:	1a ba       	out	0x1a, r1	; 26
+}
+ 138:	08 95       	ret
+
+0000013a <switchStatus>:
+
+// Læser alle switches samtidigt
+unsigned char switchStatus()
+{
+	return ~PINA;
+ 13a:	89 b3       	in	r24, 0x19	; 25
+}
+ 13c:	80 95       	com	r24
+ 13e:	08 95       	ret
+
+00000140 <switchOn>:
+// Returnerer TRUE, hvis switchen med nummeret
+// "switch_nr" er aktiveret - ellers returneres FALSE
+unsigned char switchOn(unsigned char switch_nr)
+{
+	unsigned char mask;
+	if (switch_nr <= MAX_SWITCH_NR)
+ 140:	88 30       	cpi	r24, 0x08	; 8
+ 142:	70 f4       	brcc	.+28     	; 0x160 <switchOn+0x20>
+	{
+		mask = 0b00000001 << switch_nr;
+		return (~PINA & mask);
+ 144:	49 b3       	in	r20, 0x19	; 25
+unsigned char switchOn(unsigned char switch_nr)
+{
+	unsigned char mask;
+	if (switch_nr <= MAX_SWITCH_NR)
+	{
+		mask = 0b00000001 << switch_nr;
+ 146:	21 e0       	ldi	r18, 0x01	; 1
+ 148:	30 e0       	ldi	r19, 0x00	; 0
+ 14a:	b9 01       	movw	r22, r18
+ 14c:	02 c0       	rjmp	.+4      	; 0x152 <switchOn+0x12>
+ 14e:	66 0f       	add	r22, r22
+ 150:	77 1f       	adc	r23, r23
+ 152:	8a 95       	dec	r24
+ 154:	e2 f7       	brpl	.-8      	; 0x14e <switchOn+0xe>
+ 156:	cb 01       	movw	r24, r22
+		return (~PINA & mask);
+ 158:	94 2f       	mov	r25, r20
+ 15a:	90 95       	com	r25
+ 15c:	89 23       	and	r24, r25
+ 15e:	08 95       	ret
+	}
+	else
+	return 0;
+ 160:	80 e0       	ldi	r24, 0x00	; 0
+ 162:	08 95       	ret
+
+00000164 <InitUART>:
+#include "uart.h"
+#include <stdlib.h>
+
+
+void InitUART(unsigned long BaudRate, unsigned char DataBit)
+{
+ 164:	0f 93       	push	r16
+ 166:	1f 93       	push	r17
+ 168:	cf 93       	push	r28
+ 16a:	dc 01       	movw	r26, r24
+ 16c:	cb 01       	movw	r24, r22
+ 16e:	c4 2f       	mov	r28, r20
+	if( (110<=BaudRate) && (BaudRate<=115200) && (5<=DataBit) && (DataBit<=8) )
+ 170:	ac 01       	movw	r20, r24
+ 172:	bd 01       	movw	r22, r26
+ 174:	4e 56       	subi	r20, 0x6E	; 110
+ 176:	50 40       	sbci	r21, 0x00	; 0
+ 178:	60 40       	sbci	r22, 0x00	; 0
+ 17a:	70 40       	sbci	r23, 0x00	; 0
+ 17c:	43 39       	cpi	r20, 0x93	; 147
+ 17e:	21 ec       	ldi	r18, 0xC1	; 193
+ 180:	52 07       	cpc	r21, r18
+ 182:	21 e0       	ldi	r18, 0x01	; 1
+ 184:	62 07       	cpc	r22, r18
+ 186:	20 e0       	ldi	r18, 0x00	; 0
+ 188:	72 07       	cpc	r23, r18
+ 18a:	08 f0       	brcs	.+2      	; 0x18e <InitUART+0x2a>
+ 18c:	40 c0       	rjmp	.+128    	; 0x20e <InitUART+0xaa>
+ 18e:	c5 30       	cpi	r28, 0x05	; 5
+ 190:	f0 f1       	brcs	.+124    	; 0x20e <InitUART+0xaa>
+ 192:	c9 30       	cpi	r28, 0x09	; 9
+ 194:	e0 f5       	brcc	.+120    	; 0x20e <InitUART+0xaa>
+	{
+		UBRRH = (3686400/(16*BaudRate)-1) >>8;
+ 196:	88 0f       	add	r24, r24
+ 198:	99 1f       	adc	r25, r25
+ 19a:	aa 1f       	adc	r26, r26
+ 19c:	bb 1f       	adc	r27, r27
+ 19e:	88 0f       	add	r24, r24
+ 1a0:	99 1f       	adc	r25, r25
+ 1a2:	aa 1f       	adc	r26, r26
+ 1a4:	bb 1f       	adc	r27, r27
+ 1a6:	9c 01       	movw	r18, r24
+ 1a8:	ad 01       	movw	r20, r26
+ 1aa:	22 0f       	add	r18, r18
+ 1ac:	33 1f       	adc	r19, r19
+ 1ae:	44 1f       	adc	r20, r20
+ 1b0:	55 1f       	adc	r21, r21
+ 1b2:	22 0f       	add	r18, r18
+ 1b4:	33 1f       	adc	r19, r19
+ 1b6:	44 1f       	adc	r20, r20
+ 1b8:	55 1f       	adc	r21, r21
+ 1ba:	60 e0       	ldi	r22, 0x00	; 0
+ 1bc:	70 e4       	ldi	r23, 0x40	; 64
+ 1be:	88 e3       	ldi	r24, 0x38	; 56
+ 1c0:	90 e0       	ldi	r25, 0x00	; 0
+ 1c2:	0e 94 46 01 	call	0x28c	; 0x28c <__udivmodsi4>
+ 1c6:	89 01       	movw	r16, r18
+ 1c8:	9a 01       	movw	r18, r20
+ 1ca:	d9 01       	movw	r26, r18
+ 1cc:	c8 01       	movw	r24, r16
+ 1ce:	01 97       	sbiw	r24, 0x01	; 1
+ 1d0:	a1 09       	sbc	r26, r1
+ 1d2:	b1 09       	sbc	r27, r1
+ 1d4:	89 2f       	mov	r24, r25
+ 1d6:	9a 2f       	mov	r25, r26
+ 1d8:	ab 2f       	mov	r26, r27
+ 1da:	bb 27       	eor	r27, r27
+ 1dc:	80 bd       	out	0x20, r24	; 32
+		UBRRL = 3686400/(16*BaudRate)-1;
+ 1de:	01 50       	subi	r16, 0x01	; 1
+ 1e0:	09 b9       	out	0x09, r16	; 9
+		
+		UCSRB = 0b00011000;
+ 1e2:	88 e1       	ldi	r24, 0x18	; 24
+ 1e4:	8a b9       	out	0x0a, r24	; 10
+		//UCSRC = 0b10000??0//Bit 7 skal vÃ¦re 1, bit 6 0=asynkron mode, bit 4 og 5 = valg af paritet, bit 3 = valg af stop bits 0 = 1 stop bit 1 = 2 stop bits, bit 2 og 1 = antal databits 
+		if( DataBit == 5 )
+ 1e6:	c5 30       	cpi	r28, 0x05	; 5
+ 1e8:	21 f4       	brne	.+8      	; 0x1f2 <InitUART+0x8e>
+		{
+			UCSRC = 0b10000000;
+ 1ea:	80 e8       	ldi	r24, 0x80	; 128
+ 1ec:	80 bd       	out	0x20, r24	; 32
+		}
+				if( DataBit == 5 )
+		{
+			UCSRC = 0b10000000;
+ 1ee:	80 bd       	out	0x20, r24	; 32
+ 1f0:	0a c0       	rjmp	.+20     	; 0x206 <InitUART+0xa2>
+		}
+		if( DataBit == 6 )
+ 1f2:	c6 30       	cpi	r28, 0x06	; 6
+ 1f4:	19 f4       	brne	.+6      	; 0x1fc <InitUART+0x98>
+		{
+			UCSRC = 0b10000010;
+ 1f6:	82 e8       	ldi	r24, 0x82	; 130
+ 1f8:	80 bd       	out	0x20, r24	; 32
+ 1fa:	09 c0       	rjmp	.+18     	; 0x20e <InitUART+0xaa>
+		}
+		if( DataBit == 7 )
+ 1fc:	c7 30       	cpi	r28, 0x07	; 7
+ 1fe:	19 f4       	brne	.+6      	; 0x206 <InitUART+0xa2>
+		{
+			UCSRC = 0b10000100;
+ 200:	84 e8       	ldi	r24, 0x84	; 132
+ 202:	80 bd       	out	0x20, r24	; 32
+ 204:	04 c0       	rjmp	.+8      	; 0x20e <InitUART+0xaa>
+		}
+		if( DataBit == 8 )
+ 206:	c8 30       	cpi	r28, 0x08	; 8
+ 208:	11 f4       	brne	.+4      	; 0x20e <InitUART+0xaa>
+		{
+			UCSRC = 0b10000110;
+ 20a:	86 e8       	ldi	r24, 0x86	; 134
+ 20c:	80 bd       	out	0x20, r24	; 32
+		}
+	}	
+}
+ 20e:	cf 91       	pop	r28
+ 210:	1f 91       	pop	r17
+ 212:	0f 91       	pop	r16
+ 214:	08 95       	ret
+
+00000216 <CharReady>:
+
+
+unsigned char CharReady( tegn )
+{
+	return ( (tegn != 0) ? 1 : 0 );
+ 216:	21 e0       	ldi	r18, 0x01	; 1
+ 218:	00 97       	sbiw	r24, 0x00	; 0
+ 21a:	09 f4       	brne	.+2      	; 0x21e <CharReady+0x8>
+ 21c:	20 e0       	ldi	r18, 0x00	; 0
+}
+ 21e:	82 2f       	mov	r24, r18
+ 220:	08 95       	ret
+
+00000222 <ReadChar>:
+
+
+char ReadChar()
+{
+	while( (UCSRA & 0b10000000) == 0 )
+ 222:	5f 9b       	sbis	0x0b, 7	; 11
+ 224:	fe cf       	rjmp	.-4      	; 0x222 <ReadChar>
+	{
+	}
+	
+	// x = UDR lÃ¦ser
+	// UDR = x skriver
+	return ( UDR );
+ 226:	8c b1       	in	r24, 0x0c	; 12
+}
+ 228:	08 95       	ret
+
+0000022a <SendChar>:
+
+
+void SendChar(char Tegn)
+{
+	while( ( UCSRA & 0b00100000 ) == 0 )
+ 22a:	5d 9b       	sbis	0x0b, 5	; 11
+ 22c:	fe cf       	rjmp	.-4      	; 0x22a <SendChar>
+	{
+	}
+	
+	UDR = Tegn;	
+ 22e:	8c b9       	out	0x0c, r24	; 12
+}
+ 230:	08 95       	ret
+
+00000232 <SendString>:
+
+
+void SendString(char* Streng)
+{
+ 232:	cf 93       	push	r28
+ 234:	df 93       	push	r29
+ 236:	ec 01       	movw	r28, r24
+	// Repeat untill zero-termination
+	while (*Streng != 0)
+ 238:	88 81       	ld	r24, Y
+ 23a:	88 23       	and	r24, r24
+ 23c:	31 f0       	breq	.+12     	; 0x24a <SendString+0x18>
+	
+	UDR = Tegn;	
+}
+
+
+void SendString(char* Streng)
+ 23e:	21 96       	adiw	r28, 0x01	; 1
+{
+	// Repeat untill zero-termination
+	while (*Streng != 0)
+	{
+		// Send the character pointed to by "Streng"
+		SendChar(*Streng);
+ 240:	0e 94 15 01 	call	0x22a	; 0x22a <SendChar>
+
+
+void SendString(char* Streng)
+{
+	// Repeat untill zero-termination
+	while (*Streng != 0)
+ 244:	89 91       	ld	r24, Y+
+ 246:	88 23       	and	r24, r24
+ 248:	d9 f7       	brne	.-10     	; 0x240 <SendString+0xe>
+		// Send the character pointed to by "Streng"
+		SendChar(*Streng);
+		// Advance the pointer one step
+		Streng++;
+	}
+}
+ 24a:	df 91       	pop	r29
+ 24c:	cf 91       	pop	r28
+ 24e:	08 95       	ret
+
+00000250 <SendInteger>:
+
+void SendInteger(int Tal)
+{
+ 250:	cf 93       	push	r28
+ 252:	df 93       	push	r29
+ 254:	cd b7       	in	r28, 0x3d	; 61
+ 256:	de b7       	in	r29, 0x3e	; 62
+ 258:	27 97       	sbiw	r28, 0x07	; 7
+ 25a:	0f b6       	in	r0, 0x3f	; 63
+ 25c:	f8 94       	cli
+ 25e:	de bf       	out	0x3e, r29	; 62
+ 260:	0f be       	out	0x3f, r0	; 63
+ 262:	cd bf       	out	0x3d, r28	; 61
+	char array[7];
+	// Convert the integer til an ASCII string (array), radix = 10
+	itoa(Tal, array, 10);
+ 264:	be 01       	movw	r22, r28
+ 266:	6f 5f       	subi	r22, 0xFF	; 255
+ 268:	7f 4f       	sbci	r23, 0xFF	; 255
+ 26a:	4a e0       	ldi	r20, 0x0A	; 10
+ 26c:	50 e0       	ldi	r21, 0x00	; 0
+ 26e:	0e 94 68 01 	call	0x2d0	; 0x2d0 <itoa>
+	// - then send the string
+	SendString(array);
+ 272:	ce 01       	movw	r24, r28
+ 274:	01 96       	adiw	r24, 0x01	; 1
+ 276:	0e 94 19 01 	call	0x232	; 0x232 <SendString>
+ 27a:	27 96       	adiw	r28, 0x07	; 7
+ 27c:	0f b6       	in	r0, 0x3f	; 63
+ 27e:	f8 94       	cli
+ 280:	de bf       	out	0x3e, r29	; 62
+ 282:	0f be       	out	0x3f, r0	; 63
+ 284:	cd bf       	out	0x3d, r28	; 61
+ 286:	df 91       	pop	r29
+ 288:	cf 91       	pop	r28
+ 28a:	08 95       	ret
+
+0000028c <__udivmodsi4>:
+ 28c:	a1 e2       	ldi	r26, 0x21	; 33
+ 28e:	1a 2e       	mov	r1, r26
+ 290:	aa 1b       	sub	r26, r26
+ 292:	bb 1b       	sub	r27, r27
+ 294:	fd 01       	movw	r30, r26
+ 296:	0d c0       	rjmp	.+26     	; 0x2b2 <__udivmodsi4_ep>
+
+00000298 <__udivmodsi4_loop>:
+ 298:	aa 1f       	adc	r26, r26
+ 29a:	bb 1f       	adc	r27, r27
+ 29c:	ee 1f       	adc	r30, r30
+ 29e:	ff 1f       	adc	r31, r31
+ 2a0:	a2 17       	cp	r26, r18
+ 2a2:	b3 07       	cpc	r27, r19
+ 2a4:	e4 07       	cpc	r30, r20
+ 2a6:	f5 07       	cpc	r31, r21
+ 2a8:	20 f0       	brcs	.+8      	; 0x2b2 <__udivmodsi4_ep>
+ 2aa:	a2 1b       	sub	r26, r18
+ 2ac:	b3 0b       	sbc	r27, r19
+ 2ae:	e4 0b       	sbc	r30, r20
+ 2b0:	f5 0b       	sbc	r31, r21
+
+000002b2 <__udivmodsi4_ep>:
+ 2b2:	66 1f       	adc	r22, r22
+ 2b4:	77 1f       	adc	r23, r23
+ 2b6:	88 1f       	adc	r24, r24
+ 2b8:	99 1f       	adc	r25, r25
+ 2ba:	1a 94       	dec	r1
+ 2bc:	69 f7       	brne	.-38     	; 0x298 <__udivmodsi4_loop>
+ 2be:	60 95       	com	r22
+ 2c0:	70 95       	com	r23
+ 2c2:	80 95       	com	r24
+ 2c4:	90 95       	com	r25
+ 2c6:	9b 01       	movw	r18, r22
+ 2c8:	ac 01       	movw	r20, r24
+ 2ca:	bd 01       	movw	r22, r26
+ 2cc:	cf 01       	movw	r24, r30
+ 2ce:	08 95       	ret
+
+000002d0 <itoa>:
+ 2d0:	fb 01       	movw	r30, r22
+ 2d2:	9f 01       	movw	r18, r30
+ 2d4:	e8 94       	clt
+ 2d6:	42 30       	cpi	r20, 0x02	; 2
+ 2d8:	c4 f0       	brlt	.+48     	; 0x30a <itoa+0x3a>
+ 2da:	45 32       	cpi	r20, 0x25	; 37
+ 2dc:	b4 f4       	brge	.+44     	; 0x30a <itoa+0x3a>
+ 2de:	4a 30       	cpi	r20, 0x0A	; 10
+ 2e0:	29 f4       	brne	.+10     	; 0x2ec <itoa+0x1c>
+ 2e2:	97 fb       	bst	r25, 7
+ 2e4:	1e f4       	brtc	.+6      	; 0x2ec <itoa+0x1c>
+ 2e6:	90 95       	com	r25
+ 2e8:	81 95       	neg	r24
+ 2ea:	9f 4f       	sbci	r25, 0xFF	; 255
+ 2ec:	64 2f       	mov	r22, r20
+ 2ee:	77 27       	eor	r23, r23
+ 2f0:	0e 94 99 01 	call	0x332	; 0x332 <__udivmodhi4>
+ 2f4:	80 5d       	subi	r24, 0xD0	; 208
+ 2f6:	8a 33       	cpi	r24, 0x3A	; 58
+ 2f8:	0c f0       	brlt	.+2      	; 0x2fc <itoa+0x2c>
+ 2fa:	89 5d       	subi	r24, 0xD9	; 217
+ 2fc:	81 93       	st	Z+, r24
+ 2fe:	cb 01       	movw	r24, r22
+ 300:	00 97       	sbiw	r24, 0x00	; 0
+ 302:	a1 f7       	brne	.-24     	; 0x2ec <itoa+0x1c>
+ 304:	16 f4       	brtc	.+4      	; 0x30a <itoa+0x3a>
+ 306:	5d e2       	ldi	r21, 0x2D	; 45
+ 308:	51 93       	st	Z+, r21
+ 30a:	10 82       	st	Z, r1
+ 30c:	c9 01       	movw	r24, r18
+ 30e:	0c 94 89 01 	jmp	0x312	; 0x312 <strrev>
+
+00000312 <strrev>:
+ 312:	dc 01       	movw	r26, r24
+ 314:	fc 01       	movw	r30, r24
+ 316:	67 2f       	mov	r22, r23
+ 318:	71 91       	ld	r23, Z+
+ 31a:	77 23       	and	r23, r23
+ 31c:	e1 f7       	brne	.-8      	; 0x316 <strrev+0x4>
+ 31e:	32 97       	sbiw	r30, 0x02	; 2
+ 320:	04 c0       	rjmp	.+8      	; 0x32a <strrev+0x18>
+ 322:	7c 91       	ld	r23, X
+ 324:	6d 93       	st	X+, r22
+ 326:	70 83       	st	Z, r23
+ 328:	62 91       	ld	r22, -Z
+ 32a:	ae 17       	cp	r26, r30
+ 32c:	bf 07       	cpc	r27, r31
+ 32e:	c8 f3       	brcs	.-14     	; 0x322 <strrev+0x10>
+ 330:	08 95       	ret
+
+00000332 <__udivmodhi4>:
+ 332:	aa 1b       	sub	r26, r26
+ 334:	bb 1b       	sub	r27, r27
+ 336:	51 e1       	ldi	r21, 0x11	; 17
+ 338:	07 c0       	rjmp	.+14     	; 0x348 <__udivmodhi4_ep>
+
+0000033a <__udivmodhi4_loop>:
+ 33a:	aa 1f       	adc	r26, r26
+ 33c:	bb 1f       	adc	r27, r27
+ 33e:	a6 17       	cp	r26, r22
+ 340:	b7 07       	cpc	r27, r23
+ 342:	10 f0       	brcs	.+4      	; 0x348 <__udivmodhi4_ep>
+ 344:	a6 1b       	sub	r26, r22
+ 346:	b7 0b       	sbc	r27, r23
+
+00000348 <__udivmodhi4_ep>:
+ 348:	88 1f       	adc	r24, r24
+ 34a:	99 1f       	adc	r25, r25
+ 34c:	5a 95       	dec	r21
+ 34e:	a9 f7       	brne	.-22     	; 0x33a <__udivmodhi4_loop>
+ 350:	80 95       	com	r24
+ 352:	90 95       	com	r25
+ 354:	bc 01       	movw	r22, r24
+ 356:	cd 01       	movw	r24, r26
+ 358:	08 95       	ret
+
+0000035a <_exit>:
+ 35a:	f8 94       	cli
+
+0000035c <__stop_program>:
+ 35c:	ff cf       	rjmp	.-2      	; 0x35c <__stop_program>

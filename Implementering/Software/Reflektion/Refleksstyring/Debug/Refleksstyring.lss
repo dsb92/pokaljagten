@@ -1,0 +1,1284 @@
+
+Refleksstyring.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000006ee  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000066  00800060  000006ee  00000782  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000e  008000c6  008000c6  000007e8  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000007e8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  00000eb4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000000c0  00000000  00000000  00000f40  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000a60  00000000  00000000  00001000  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000331  00000000  00000000  00001a60  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000005d8  00000000  00000000  00001d91  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000238  00000000  00000000  0000236c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000041b  00000000  00000000  000025a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000003be  00000000  00000000  000029bf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__ctors_end>
+   4:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   8:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  10:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  14:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  18:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  1c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  20:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  24:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  28:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  2c:	0c 94 c7 01 	jmp	0x38e	; 0x38e <__vector_11>
+  30:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  34:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  38:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  3c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  40:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  44:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  48:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  4c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  50:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  54:	82 00       	.word	0x0082	; ????
+  56:	87 00       	.word	0x0087	; ????
+  58:	8e 00       	.word	0x008e	; ????
+  5a:	95 00       	.word	0x0095	; ????
+  5c:	9c 00       	.word	0x009c	; ????
+  5e:	a3 00       	.word	0x00a3	; ????
+  60:	aa 00       	.word	0x00aa	; ????
+  62:	b1 00       	.word	0x00b1	; ????
+  64:	b6 00       	.word	0x00b6	; ????
+  66:	bd 00       	.word	0x00bd	; ????
+  68:	c4 00       	.word	0x00c4	; ????
+  6a:	cb 00       	.word	0x00cb	; ????
+  6c:	d2 00       	.word	0x00d2	; ????
+  6e:	d9 00       	.word	0x00d9	; ????
+  70:	e0 00       	.word	0x00e0	; ????
+  72:	e5 00       	.word	0x00e5	; ????
+  74:	ec 00       	.word	0x00ec	; ????
+  76:	f3 00       	.word	0x00f3	; ????
+  78:	fa 00       	.word	0x00fa	; ????
+  7a:	01 01       	movw	r0, r2
+  7c:	06 01       	movw	r0, r12
+
+0000007e <__ctors_end>:
+  7e:	11 24       	eor	r1, r1
+  80:	1f be       	out	0x3f, r1	; 63
+  82:	cf e5       	ldi	r28, 0x5F	; 95
+  84:	d8 e0       	ldi	r29, 0x08	; 8
+  86:	de bf       	out	0x3e, r29	; 62
+  88:	cd bf       	out	0x3d, r28	; 61
+
+0000008a <__do_copy_data>:
+  8a:	10 e0       	ldi	r17, 0x00	; 0
+  8c:	a0 e6       	ldi	r26, 0x60	; 96
+  8e:	b0 e0       	ldi	r27, 0x00	; 0
+  90:	ee ee       	ldi	r30, 0xEE	; 238
+  92:	f6 e0       	ldi	r31, 0x06	; 6
+  94:	02 c0       	rjmp	.+4      	; 0x9a <__do_copy_data+0x10>
+  96:	05 90       	lpm	r0, Z+
+  98:	0d 92       	st	X+, r0
+  9a:	a6 3c       	cpi	r26, 0xC6	; 198
+  9c:	b1 07       	cpc	r27, r17
+  9e:	d9 f7       	brne	.-10     	; 0x96 <__do_copy_data+0xc>
+
+000000a0 <__do_clear_bss>:
+  a0:	10 e0       	ldi	r17, 0x00	; 0
+  a2:	a6 ec       	ldi	r26, 0xC6	; 198
+  a4:	b0 e0       	ldi	r27, 0x00	; 0
+  a6:	01 c0       	rjmp	.+2      	; 0xaa <.do_clear_bss_start>
+
+000000a8 <.do_clear_bss_loop>:
+  a8:	1d 92       	st	X+, r1
+
+000000aa <.do_clear_bss_start>:
+  aa:	a4 3d       	cpi	r26, 0xD4	; 212
+  ac:	b1 07       	cpc	r27, r17
+  ae:	e1 f7       	brne	.-8      	; 0xa8 <.do_clear_bss_loop>
+  b0:	0e 94 16 03 	call	0x62c	; 0x62c <main>
+  b4:	0c 94 75 03 	jmp	0x6ea	; 0x6ea <_exit>
+
+000000b8 <__bad_interrupt>:
+  b8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000bc <stopTone_lvlcom>:
+}
+
+
+void stopTone_lvlcom(int delay_lvlcom)
+{
+	TCCR1A &= 0b10111111;
+  bc:	9f b5       	in	r25, 0x2f	; 47
+  be:	9f 7b       	andi	r25, 0xBF	; 191
+  c0:	9f bd       	out	0x2f, r25	; 47
+	ANTAL_OVERFLOWS_lvlcom = delay_lvlcom;
+  c2:	80 93 d0 00 	sts	0x00D0, r24
+}
+  c6:	08 95       	ret
+
+000000c8 <stopTone_coin>:
+
+void stopTone_coin(int delay_coin)
+{
+	TCCR1A &= 0b10111111;
+  c8:	9f b5       	in	r25, 0x2f	; 47
+  ca:	9f 7b       	andi	r25, 0xBF	; 191
+  cc:	9f bd       	out	0x2f, r25	; 47
+	ANTAL_OVERFLOWS_coin = delay_coin;
+  ce:	80 93 d3 00 	sts	0x00D3, r24
+}
+  d2:	08 95       	ret
+
+000000d4 <stopTone_reverse>:
+
+void stopTone_reverse()
+{
+	TCCR1A &= 0b10111111;
+  d4:	8f b5       	in	r24, 0x2f	; 47
+  d6:	8f 7b       	andi	r24, 0xBF	; 191
+  d8:	8f bd       	out	0x2f, r24	; 47
+}
+  da:	08 95       	ret
+
+000000dc <startTone_levelComplete>:
+
+// UNDERFUNKTIONER:
+
+
+void startTone_levelComplete(char tone_lvlcom, int delay_lvlcom)
+{
+  dc:	cf 93       	push	r28
+  de:	c8 2f       	mov	r28, r24
+	ANTAL_OVERFLOWS_lvlcom = delay_lvlcom;
+  e0:	60 93 d0 00 	sts	0x00D0, r22
+	switch(tone_lvlcom)
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	81 56       	subi	r24, 0x61	; 97
+  e8:	90 40       	sbci	r25, 0x00	; 0
+  ea:	85 31       	cpi	r24, 0x15	; 21
+  ec:	91 05       	cpc	r25, r1
+  ee:	08 f0       	brcs	.+2      	; 0xf2 <startTone_levelComplete+0x16>
+  f0:	92 c0       	rjmp	.+292    	; 0x216 <startTone_levelComplete+0x13a>
+  f2:	86 5d       	subi	r24, 0xD6	; 214
+  f4:	9f 4f       	sbci	r25, 0xFF	; 255
+  f6:	fc 01       	movw	r30, r24
+  f8:	ee 0f       	add	r30, r30
+  fa:	ff 1f       	adc	r31, r31
+  fc:	05 90       	lpm	r0, Z+
+  fe:	f4 91       	lpm	r31, Z
+ 100:	e0 2d       	mov	r30, r0
+ 102:	09 94       	ijmp
+	{
+		case 'a':
+		OCR1A = 3685; //a = 200 Hz
+ 104:	85 e6       	ldi	r24, 0x65	; 101
+ 106:	9e e0       	ldi	r25, 0x0E	; 14
+ 108:	9b bd       	out	0x2b, r25	; 43
+ 10a:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 10c:	92 c0       	rjmp	.+292    	; 0x232 <startTone_levelComplete+0x156>
+		case 'b':
+		OCR1A -= 100; //b = 210 Hz
+ 10e:	8a b5       	in	r24, 0x2a	; 42
+ 110:	9b b5       	in	r25, 0x2b	; 43
+ 112:	84 56       	subi	r24, 0x64	; 100
+ 114:	90 40       	sbci	r25, 0x00	; 0
+ 116:	9b bd       	out	0x2b, r25	; 43
+ 118:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 11a:	8b c0       	rjmp	.+278    	; 0x232 <startTone_levelComplete+0x156>
+		case 'c':
+		OCR1A -= 200; //c = 770 Hz
+ 11c:	8a b5       	in	r24, 0x2a	; 42
+ 11e:	9b b5       	in	r25, 0x2b	; 43
+ 120:	88 5c       	subi	r24, 0xC8	; 200
+ 122:	90 40       	sbci	r25, 0x00	; 0
+ 124:	9b bd       	out	0x2b, r25	; 43
+ 126:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 128:	84 c0       	rjmp	.+264    	; 0x232 <startTone_levelComplete+0x156>
+		case 'd':
+		OCR1A -= 300; //d = 380 Hz
+ 12a:	8a b5       	in	r24, 0x2a	; 42
+ 12c:	9b b5       	in	r25, 0x2b	; 43
+ 12e:	8c 52       	subi	r24, 0x2C	; 44
+ 130:	91 40       	sbci	r25, 0x01	; 1
+ 132:	9b bd       	out	0x2b, r25	; 43
+ 134:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 136:	7d c0       	rjmp	.+250    	; 0x232 <startTone_levelComplete+0x156>
+		case 'e':
+		OCR1A -= 400; //e = 320 Hz
+ 138:	8a b5       	in	r24, 0x2a	; 42
+ 13a:	9b b5       	in	r25, 0x2b	; 43
+ 13c:	80 59       	subi	r24, 0x90	; 144
+ 13e:	91 40       	sbci	r25, 0x01	; 1
+ 140:	9b bd       	out	0x2b, r25	; 43
+ 142:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 144:	76 c0       	rjmp	.+236    	; 0x232 <startTone_levelComplete+0x156>
+		case 'f':
+		OCR1A -= 400+200; //f = 440 Hz
+ 146:	8a b5       	in	r24, 0x2a	; 42
+ 148:	9b b5       	in	r25, 0x2b	; 43
+ 14a:	88 55       	subi	r24, 0x58	; 88
+ 14c:	92 40       	sbci	r25, 0x02	; 2
+ 14e:	9b bd       	out	0x2b, r25	; 43
+ 150:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 152:	6f c0       	rjmp	.+222    	; 0x232 <startTone_levelComplete+0x156>
+		case 'g':
+		OCR1A += 400; //g = 480 Hz
+ 154:	8a b5       	in	r24, 0x2a	; 42
+ 156:	9b b5       	in	r25, 0x2b	; 43
+ 158:	80 57       	subi	r24, 0x70	; 112
+ 15a:	9e 4f       	sbci	r25, 0xFE	; 254
+ 15c:	9b bd       	out	0x2b, r25	; 43
+ 15e:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 160:	68 c0       	rjmp	.+208    	; 0x232 <startTone_levelComplete+0x156>
+		case 'h':
+		OCR1A = 3685; //h = 450 Hz
+ 162:	85 e6       	ldi	r24, 0x65	; 101
+ 164:	9e e0       	ldi	r25, 0x0E	; 14
+ 166:	9b bd       	out	0x2b, r25	; 43
+ 168:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 16a:	63 c0       	rjmp	.+198    	; 0x232 <startTone_levelComplete+0x156>
+		case 'i':
+		OCR1A -= 150; //i = 430 Hz
+ 16c:	8a b5       	in	r24, 0x2a	; 42
+ 16e:	9b b5       	in	r25, 0x2b	; 43
+ 170:	86 59       	subi	r24, 0x96	; 150
+ 172:	90 40       	sbci	r25, 0x00	; 0
+ 174:	9b bd       	out	0x2b, r25	; 43
+ 176:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 178:	5c c0       	rjmp	.+184    	; 0x232 <startTone_levelComplete+0x156>
+		case 'j':
+		OCR1A -= 200; //j = 760 Hz
+ 17a:	8a b5       	in	r24, 0x2a	; 42
+ 17c:	9b b5       	in	r25, 0x2b	; 43
+ 17e:	88 5c       	subi	r24, 0xC8	; 200
+ 180:	90 40       	sbci	r25, 0x00	; 0
+ 182:	9b bd       	out	0x2b, r25	; 43
+ 184:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 186:	55 c0       	rjmp	.+170    	; 0x232 <startTone_levelComplete+0x156>
+		case 'k':
+		OCR1A -= 300; //k = 860 Hz
+ 188:	8a b5       	in	r24, 0x2a	; 42
+ 18a:	9b b5       	in	r25, 0x2b	; 43
+ 18c:	8c 52       	subi	r24, 0x2C	; 44
+ 18e:	91 40       	sbci	r25, 0x01	; 1
+ 190:	9b bd       	out	0x2b, r25	; 43
+ 192:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 194:	4e c0       	rjmp	.+156    	; 0x232 <startTone_levelComplete+0x156>
+		case 'l':
+		OCR1A -= 450; //l = 700 Hz
+ 196:	8a b5       	in	r24, 0x2a	; 42
+ 198:	9b b5       	in	r25, 0x2b	; 43
+ 19a:	82 5c       	subi	r24, 0xC2	; 194
+ 19c:	91 40       	sbci	r25, 0x01	; 1
+ 19e:	9b bd       	out	0x2b, r25	; 43
+ 1a0:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1a2:	47 c0       	rjmp	.+142    	; 0x232 <startTone_levelComplete+0x156>
+		case 'm':
+		OCR1A -= 450+225; //m = 520 Hz
+ 1a4:	8a b5       	in	r24, 0x2a	; 42
+ 1a6:	9b b5       	in	r25, 0x2b	; 43
+ 1a8:	83 5a       	subi	r24, 0xA3	; 163
+ 1aa:	92 40       	sbci	r25, 0x02	; 2
+ 1ac:	9b bd       	out	0x2b, r25	; 43
+ 1ae:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1b0:	40 c0       	rjmp	.+128    	; 0x232 <startTone_levelComplete+0x156>
+		case 'n':
+		OCR1A += 225; //n = 580 Hz
+ 1b2:	8a b5       	in	r24, 0x2a	; 42
+ 1b4:	9b b5       	in	r25, 0x2b	; 43
+ 1b6:	8f 51       	subi	r24, 0x1F	; 31
+ 1b8:	9f 4f       	sbci	r25, 0xFF	; 255
+ 1ba:	9b bd       	out	0x2b, r25	; 43
+ 1bc:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1be:	39 c0       	rjmp	.+114    	; 0x232 <startTone_levelComplete+0x156>
+		case 'o':
+		OCR1A = 3685; //o = 500 Hz
+ 1c0:	85 e6       	ldi	r24, 0x65	; 101
+ 1c2:	9e e0       	ldi	r25, 0x0E	; 14
+ 1c4:	9b bd       	out	0x2b, r25	; 43
+ 1c6:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1c8:	34 c0       	rjmp	.+104    	; 0x232 <startTone_levelComplete+0x156>
+		case 'p':
+		OCR1A -= 200; //p = 720 Hz
+ 1ca:	8a b5       	in	r24, 0x2a	; 42
+ 1cc:	9b b5       	in	r25, 0x2b	; 43
+ 1ce:	88 5c       	subi	r24, 0xC8	; 200
+ 1d0:	90 40       	sbci	r25, 0x00	; 0
+ 1d2:	9b bd       	out	0x2b, r25	; 43
+ 1d4:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1d6:	2d c0       	rjmp	.+90     	; 0x232 <startTone_levelComplete+0x156>
+		case 'q':
+		OCR1A -= 225; //q = 680 Hz
+ 1d8:	8a b5       	in	r24, 0x2a	; 42
+ 1da:	9b b5       	in	r25, 0x2b	; 43
+ 1dc:	81 5e       	subi	r24, 0xE1	; 225
+ 1de:	90 40       	sbci	r25, 0x00	; 0
+ 1e0:	9b bd       	out	0x2b, r25	; 43
+ 1e2:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1e4:	26 c0       	rjmp	.+76     	; 0x232 <startTone_levelComplete+0x156>
+		case 'r':
+		OCR1A -= 325; //r = 620 Hz
+ 1e6:	8a b5       	in	r24, 0x2a	; 42
+ 1e8:	9b b5       	in	r25, 0x2b	; 43
+ 1ea:	85 54       	subi	r24, 0x45	; 69
+ 1ec:	91 40       	sbci	r25, 0x01	; 1
+ 1ee:	9b bd       	out	0x2b, r25	; 43
+ 1f0:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 1f2:	1f c0       	rjmp	.+62     	; 0x232 <startTone_levelComplete+0x156>
+		case 's':
+		OCR1A -= 400; //s = 650 Hz
+ 1f4:	8a b5       	in	r24, 0x2a	; 42
+ 1f6:	9b b5       	in	r25, 0x2b	; 43
+ 1f8:	80 59       	subi	r24, 0x90	; 144
+ 1fa:	91 40       	sbci	r25, 0x01	; 1
+ 1fc:	9b bd       	out	0x2b, r25	; 43
+ 1fe:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 200:	18 c0       	rjmp	.+48     	; 0x232 <startTone_levelComplete+0x156>
+		case 't':
+		OCR1A = 2000; //t = 570 Hz
+ 202:	80 ed       	ldi	r24, 0xD0	; 208
+ 204:	97 e0       	ldi	r25, 0x07	; 7
+ 206:	9b bd       	out	0x2b, r25	; 43
+ 208:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 20a:	13 c0       	rjmp	.+38     	; 0x232 <startTone_levelComplete+0x156>
+		case 'u':
+		OCR1A = 1700; //u = 1020 Hz
+ 20c:	84 ea       	ldi	r24, 0xA4	; 164
+ 20e:	96 e0       	ldi	r25, 0x06	; 6
+ 210:	9b bd       	out	0x2b, r25	; 43
+ 212:	8a bd       	out	0x2a, r24	; 42
+		break;
+ 214:	0e c0       	rjmp	.+28     	; 0x232 <startTone_levelComplete+0x156>
+	}
+	stopTone_lvlcom(-1);
+ 216:	8f ef       	ldi	r24, 0xFF	; 255
+ 218:	9f ef       	ldi	r25, 0xFF	; 255
+ 21a:	0e 94 5e 00 	call	0xbc	; 0xbc <stopTone_lvlcom>
+	if (tone_lvlcom != '-')
+ 21e:	cd 32       	cpi	r28, 0x2D	; 45
+ 220:	19 f0       	breq	.+6      	; 0x228 <startTone_levelComplete+0x14c>
+		TCCR1A |= 0b01000000;	// Toggle OCR1A on compare match
+ 222:	8f b5       	in	r24, 0x2f	; 47
+ 224:	80 64       	ori	r24, 0x40	; 64
+ 226:	8f bd       	out	0x2f, r24	; 47
+	
+	// Enable Timer0 overflow interrupt
+	TIMSK |= 0b00000001;
+ 228:	89 b7       	in	r24, 0x39	; 57
+ 22a:	81 60       	ori	r24, 0x01	; 1
+ 22c:	89 bf       	out	0x39, r24	; 57
+}
+ 22e:	cf 91       	pop	r28
+ 230:	08 95       	ret
+		break;
+		case 'u':
+		OCR1A = 1700; //u = 1020 Hz
+		break;
+	}
+	stopTone_lvlcom(-1);
+ 232:	8f ef       	ldi	r24, 0xFF	; 255
+ 234:	9f ef       	ldi	r25, 0xFF	; 255
+ 236:	0e 94 5e 00 	call	0xbc	; 0xbc <stopTone_lvlcom>
+ 23a:	f3 cf       	rjmp	.-26     	; 0x222 <startTone_levelComplete+0x146>
+
+0000023c <startTone_coin>:
+	// Enable Timer0 overflow interrupt
+	TIMSK |= 0b00000001;
+}
+
+void startTone_coin(char tone_coin, int delay_coin)
+{
+ 23c:	cf 93       	push	r28
+ 23e:	c8 2f       	mov	r28, r24
+	ANTAL_OVERFLOWS_coin = delay_coin;
+ 240:	60 93 d3 00 	sts	0x00D3, r22
+	
+	if ( tone_coin == 'a')
+ 244:	81 36       	cpi	r24, 0x61	; 97
+ 246:	29 f4       	brne	.+10     	; 0x252 <startTone_coin+0x16>
+		OCR1A = 1842;	//a = 1000 Hz
+ 248:	82 e3       	ldi	r24, 0x32	; 50
+ 24a:	97 e0       	ldi	r25, 0x07	; 7
+ 24c:	9b bd       	out	0x2b, r25	; 43
+ 24e:	8a bd       	out	0x2a, r24	; 42
+ 250:	15 c0       	rjmp	.+42     	; 0x27c <startTone_coin+0x40>
+	
+	else if ( tone_coin == 'b')
+ 252:	82 36       	cpi	r24, 0x62	; 98
+ 254:	29 f4       	brne	.+10     	; 0x260 <startTone_coin+0x24>
+		OCR1A = 1382;	//b = 1333 Hz
+ 256:	86 e6       	ldi	r24, 0x66	; 102
+ 258:	95 e0       	ldi	r25, 0x05	; 5
+ 25a:	9b bd       	out	0x2b, r25	; 43
+ 25c:	8a bd       	out	0x2a, r24	; 42
+ 25e:	0e c0       	rjmp	.+28     	; 0x27c <startTone_coin+0x40>
+	
+	stopTone_coin(-1);
+ 260:	8f ef       	ldi	r24, 0xFF	; 255
+ 262:	9f ef       	ldi	r25, 0xFF	; 255
+ 264:	0e 94 64 00 	call	0xc8	; 0xc8 <stopTone_coin>
+	
+	if (tone_coin != '-')
+ 268:	cd 32       	cpi	r28, 0x2D	; 45
+ 26a:	19 f0       	breq	.+6      	; 0x272 <startTone_coin+0x36>
+		TCCR1A |= 0b01000000;	// Toggle OCR1A on compare match
+ 26c:	8f b5       	in	r24, 0x2f	; 47
+ 26e:	80 64       	ori	r24, 0x40	; 64
+ 270:	8f bd       	out	0x2f, r24	; 47
+	
+	// Enable Timer0 overflow interrupt
+	TIMSK |= 0b00000001;
+ 272:	89 b7       	in	r24, 0x39	; 57
+ 274:	81 60       	ori	r24, 0x01	; 1
+ 276:	89 bf       	out	0x39, r24	; 57
+}
+ 278:	cf 91       	pop	r28
+ 27a:	08 95       	ret
+		OCR1A = 1842;	//a = 1000 Hz
+	
+	else if ( tone_coin == 'b')
+		OCR1A = 1382;	//b = 1333 Hz
+	
+	stopTone_coin(-1);
+ 27c:	8f ef       	ldi	r24, 0xFF	; 255
+ 27e:	9f ef       	ldi	r25, 0xFF	; 255
+ 280:	0e 94 64 00 	call	0xc8	; 0xc8 <stopTone_coin>
+ 284:	f3 cf       	rjmp	.-26     	; 0x26c <startTone_coin+0x30>
+
+00000286 <startTone_reverse>:
+	// Enable Timer0 overflow interrupt
+	TIMSK |= 0b00000001;
+}
+
+void startTone_reverse(char tone_reverse)
+{
+ 286:	cf 93       	push	r28
+ 288:	c8 2f       	mov	r28, r24
+	if ( tone_reverse == 'a')
+ 28a:	81 36       	cpi	r24, 0x61	; 97
+ 28c:	39 f4       	brne	.+14     	; 0x29c <startTone_reverse+0x16>
+		OCR1A = 2792;	//a = 660 Hz
+ 28e:	88 ee       	ldi	r24, 0xE8	; 232
+ 290:	9a e0       	ldi	r25, 0x0A	; 10
+ 292:	9b bd       	out	0x2b, r25	; 43
+ 294:	8a bd       	out	0x2a, r24	; 42
+	
+	stopTone_reverse();
+ 296:	0e 94 6a 00 	call	0xd4	; 0xd4 <stopTone_reverse>
+ 29a:	04 c0       	rjmp	.+8      	; 0x2a4 <startTone_reverse+0x1e>
+ 29c:	0e 94 6a 00 	call	0xd4	; 0xd4 <stopTone_reverse>
+	
+	if ( tone_reverse != '-')
+ 2a0:	cd 32       	cpi	r28, 0x2D	; 45
+ 2a2:	19 f0       	breq	.+6      	; 0x2aa <startTone_reverse+0x24>
+		TCCR1A |= 0b01000000;	// Toggle OCR1A on compare match
+ 2a4:	8f b5       	in	r24, 0x2f	; 47
+ 2a6:	80 64       	ori	r24, 0x40	; 64
+ 2a8:	8f bd       	out	0x2f, r24	; 47
+	
+	// Enable Timer0 overflow interrupt
+	TIMSK |= 0b00000001;
+ 2aa:	89 b7       	in	r24, 0x39	; 57
+ 2ac:	81 60       	ori	r24, 0x01	; 1
+ 2ae:	89 bf       	out	0x39, r24	; 57
+}
+ 2b0:	cf 91       	pop	r28
+ 2b2:	08 95       	ret
+
+000002b4 <startMelodi_levelComplete>:
+	TCCR1A &= 0b10111111;
+}
+
+
+void startMelodi_levelComplete(char *levelCompletePtr, int *lvlCompleteDelayPtr)
+{
+ 2b4:	fc 01       	movw	r30, r24
+	if (*levelCompletePtr )
+ 2b6:	80 81       	ld	r24, Z
+ 2b8:	88 23       	and	r24, r24
+ 2ba:	01 f1       	breq	.+64     	; 0x2fc <startMelodi_levelComplete+0x48>
+	{
+		levelcomplete_melodiPtr = levelCompletePtr;
+ 2bc:	f0 93 cb 00 	sts	0x00CB, r31
+ 2c0:	e0 93 ca 00 	sts	0x00CA, r30
+		levelcompleteDelayPtr = lvlCompleteDelayPtr;
+ 2c4:	70 93 cd 00 	sts	0x00CD, r23
+ 2c8:	60 93 cc 00 	sts	0x00CC, r22
+		startTone_levelComplete(*levelCompletePtr, *lvlCompleteDelayPtr);
+ 2cc:	db 01       	movw	r26, r22
+ 2ce:	6d 91       	ld	r22, X+
+ 2d0:	7c 91       	ld	r23, X
+ 2d2:	80 81       	ld	r24, Z
+ 2d4:	0e 94 6e 00 	call	0xdc	; 0xdc <startTone_levelComplete>
+		levelcomplete_melodiPtr++;
+ 2d8:	80 91 ca 00 	lds	r24, 0x00CA
+ 2dc:	90 91 cb 00 	lds	r25, 0x00CB
+ 2e0:	01 96       	adiw	r24, 0x01	; 1
+ 2e2:	90 93 cb 00 	sts	0x00CB, r25
+ 2e6:	80 93 ca 00 	sts	0x00CA, r24
+		levelcompleteDelayPtr++;
+ 2ea:	80 91 cc 00 	lds	r24, 0x00CC
+ 2ee:	90 91 cd 00 	lds	r25, 0x00CD
+ 2f2:	02 96       	adiw	r24, 0x02	; 2
+ 2f4:	90 93 cd 00 	sts	0x00CD, r25
+ 2f8:	80 93 cc 00 	sts	0x00CC, r24
+ 2fc:	08 95       	ret
+
+000002fe <startMelodi_coin>:
+	}
+}
+
+void startMelodi_coin(char *coinPtr, int *cDelayPtr)
+{
+ 2fe:	fc 01       	movw	r30, r24
+	if ( *coinPtr )
+ 300:	80 81       	ld	r24, Z
+ 302:	88 23       	and	r24, r24
+ 304:	01 f1       	breq	.+64     	; 0x346 <startMelodi_coin+0x48>
+	{
+		coin_melodiPtr = coinPtr;
+ 306:	f0 93 d2 00 	sts	0x00D2, r31
+ 30a:	e0 93 d1 00 	sts	0x00D1, r30
+		coinDelayPtr = cDelayPtr;
+ 30e:	70 93 c9 00 	sts	0x00C9, r23
+ 312:	60 93 c8 00 	sts	0x00C8, r22
+		startTone_coin(*coinPtr, *cDelayPtr);
+ 316:	db 01       	movw	r26, r22
+ 318:	6d 91       	ld	r22, X+
+ 31a:	7c 91       	ld	r23, X
+ 31c:	80 81       	ld	r24, Z
+ 31e:	0e 94 1e 01 	call	0x23c	; 0x23c <startTone_coin>
+		coin_melodiPtr++;
+ 322:	80 91 d1 00 	lds	r24, 0x00D1
+ 326:	90 91 d2 00 	lds	r25, 0x00D2
+ 32a:	01 96       	adiw	r24, 0x01	; 1
+ 32c:	90 93 d2 00 	sts	0x00D2, r25
+ 330:	80 93 d1 00 	sts	0x00D1, r24
+		coinDelayPtr++;
+ 334:	80 91 c8 00 	lds	r24, 0x00C8
+ 338:	90 91 c9 00 	lds	r25, 0x00C9
+ 33c:	02 96       	adiw	r24, 0x02	; 2
+ 33e:	90 93 c9 00 	sts	0x00C9, r25
+ 342:	80 93 c8 00 	sts	0x00C8, r24
+ 346:	08 95       	ret
+
+00000348 <startMelodi_reverse>:
+	}
+}
+
+void startMelodi_reverse(char *BeebPtr)	// Pointers der peger på arrayet ReverseBeebBeeb. BEMÆRK KUN 1 PARAMETER, DA ANTAL OVERFLOWS ER KONSTANT for ReverseBeeb! 
+{
+ 348:	cf 93       	push	r28
+ 34a:	df 93       	push	r29
+ 34c:	ec 01       	movw	r28, r24
+	if (*BeebPtr)
+ 34e:	88 81       	ld	r24, Y
+ 350:	88 23       	and	r24, r24
+ 352:	39 f0       	breq	.+14     	; 0x362 <startMelodi_reverse+0x1a>
+	{
+		startTone_reverse(*BeebPtr);
+ 354:	0e 94 43 01 	call	0x286	; 0x286 <startTone_reverse>
+		reverse_melodiPtr = BeebPtr;
+		reverse_melodiPtr++;
+ 358:	21 96       	adiw	r28, 0x01	; 1
+ 35a:	d0 93 cf 00 	sts	0x00CF, r29
+ 35e:	c0 93 ce 00 	sts	0x00CE, r28
+	}
+}
+ 362:	df 91       	pop	r29
+ 364:	cf 91       	pop	r28
+ 366:	08 95       	ret
+
+00000368 <StopLevelComplete>:
+
+//FUNKTIONER
+
+void StopLevelComplete( void )
+{
+	startMelodi_levelComplete(LevelComplete, toneDelay_levelComplete);
+ 368:	8e e9       	ldi	r24, 0x9E	; 158
+ 36a:	90 e0       	ldi	r25, 0x00	; 0
+ 36c:	64 e6       	ldi	r22, 0x64	; 100
+ 36e:	70 e0       	ldi	r23, 0x00	; 0
+ 370:	0e 94 5a 01 	call	0x2b4	; 0x2b4 <startMelodi_levelComplete>
+}
+ 374:	08 95       	ret
+
+00000376 <DetekCoin>:
+
+void DetekCoin( void )
+{
+	startMelodi_coin(Coin, toneDelay_coin);
+ 376:	8e e8       	ldi	r24, 0x8E	; 142
+ 378:	90 e0       	ldi	r25, 0x00	; 0
+ 37a:	60 e6       	ldi	r22, 0x60	; 96
+ 37c:	70 e0       	ldi	r23, 0x00	; 0
+ 37e:	0e 94 7f 01 	call	0x2fe	; 0x2fe <startMelodi_coin>
+}
+ 382:	08 95       	ret
+
+00000384 <ReverseBeebBeeb>:
+
+void ReverseBeebBeeb( void )
+{
+	startMelodi_reverse(ReverseBeeb);
+ 384:	8a e8       	ldi	r24, 0x8A	; 138
+ 386:	90 e0       	ldi	r25, 0x00	; 0
+ 388:	0e 94 a4 01 	call	0x348	; 0x348 <startMelodi_reverse>
+}
+ 38c:	08 95       	ret
+
+0000038e <__vector_11>:
+
+
+// INTERRUPT:
+
+ISR(TIMER0_OVF_vect)
+{
+ 38e:	1f 92       	push	r1
+ 390:	0f 92       	push	r0
+ 392:	0f b6       	in	r0, 0x3f	; 63
+ 394:	0f 92       	push	r0
+ 396:	11 24       	eor	r1, r1
+ 398:	2f 93       	push	r18
+ 39a:	3f 93       	push	r19
+ 39c:	4f 93       	push	r20
+ 39e:	5f 93       	push	r21
+ 3a0:	6f 93       	push	r22
+ 3a2:	7f 93       	push	r23
+ 3a4:	8f 93       	push	r24
+ 3a6:	9f 93       	push	r25
+ 3a8:	af 93       	push	r26
+ 3aa:	bf 93       	push	r27
+ 3ac:	ef 93       	push	r30
+ 3ae:	ff 93       	push	r31
+	overflow_cnt++;
+ 3b0:	80 91 c6 00 	lds	r24, 0x00C6
+ 3b4:	90 91 c7 00 	lds	r25, 0x00C7
+ 3b8:	01 96       	adiw	r24, 0x01	; 1
+ 3ba:	90 93 c7 00 	sts	0x00C7, r25
+ 3be:	80 93 c6 00 	sts	0x00C6, r24
+	 	 
+	if (overflow_cnt == ANTAL_OVERFLOWS_lvlcom )
+ 3c2:	20 91 d0 00 	lds	r18, 0x00D0
+ 3c6:	30 e0       	ldi	r19, 0x00	; 0
+ 3c8:	82 17       	cp	r24, r18
+ 3ca:	93 07       	cpc	r25, r19
+ 3cc:	09 f0       	breq	.+2      	; 0x3d0 <__vector_11+0x42>
+ 3ce:	4b c0       	rjmp	.+150    	; 0x466 <__vector_11+0xd8>
+	{
+		if (*levelcomplete_melodiPtr == '-')
+ 3d0:	e0 91 ca 00 	lds	r30, 0x00CA
+ 3d4:	f0 91 cb 00 	lds	r31, 0x00CB
+ 3d8:	80 81       	ld	r24, Z
+ 3da:	8d 32       	cpi	r24, 0x2D	; 45
+ 3dc:	d9 f4       	brne	.+54     	; 0x414 <__vector_11+0x86>
+		{
+			stopTone_lvlcom(*levelcompleteDelayPtr);
+ 3de:	e0 91 cc 00 	lds	r30, 0x00CC
+ 3e2:	f0 91 cd 00 	lds	r31, 0x00CD
+ 3e6:	80 81       	ld	r24, Z
+ 3e8:	91 81       	ldd	r25, Z+1	; 0x01
+ 3ea:	0e 94 5e 00 	call	0xbc	; 0xbc <stopTone_lvlcom>
+			levelcomplete_melodiPtr++;
+ 3ee:	80 91 ca 00 	lds	r24, 0x00CA
+ 3f2:	90 91 cb 00 	lds	r25, 0x00CB
+ 3f6:	01 96       	adiw	r24, 0x01	; 1
+ 3f8:	90 93 cb 00 	sts	0x00CB, r25
+ 3fc:	80 93 ca 00 	sts	0x00CA, r24
+			levelcompleteDelayPtr++;
+ 400:	80 91 cc 00 	lds	r24, 0x00CC
+ 404:	90 91 cd 00 	lds	r25, 0x00CD
+ 408:	02 96       	adiw	r24, 0x02	; 2
+ 40a:	90 93 cd 00 	sts	0x00CD, r25
+ 40e:	80 93 cc 00 	sts	0x00CC, r24
+ 412:	24 c0       	rjmp	.+72     	; 0x45c <__vector_11+0xce>
+		}
+			 	 
+		else if (*levelcomplete_melodiPtr == 0)
+ 414:	88 23       	and	r24, r24
+ 416:	41 f4       	brne	.+16     	; 0x428 <__vector_11+0x9a>
+		{
+			stopTone_lvlcom(0);
+ 418:	80 e0       	ldi	r24, 0x00	; 0
+ 41a:	90 e0       	ldi	r25, 0x00	; 0
+ 41c:	0e 94 5e 00 	call	0xbc	; 0xbc <stopTone_lvlcom>
+			// Disable Timer0 overflow interrupt
+			TIMSK &= 0b11111110;
+ 420:	89 b7       	in	r24, 0x39	; 57
+ 422:	8e 7f       	andi	r24, 0xFE	; 254
+ 424:	89 bf       	out	0x39, r24	; 57
+ 426:	1a c0       	rjmp	.+52     	; 0x45c <__vector_11+0xce>
+		}
+			 
+		else
+		{
+			startTone_levelComplete(*levelcomplete_melodiPtr, *levelcompleteDelayPtr);
+ 428:	e0 91 cc 00 	lds	r30, 0x00CC
+ 42c:	f0 91 cd 00 	lds	r31, 0x00CD
+ 430:	60 81       	ld	r22, Z
+ 432:	71 81       	ldd	r23, Z+1	; 0x01
+ 434:	0e 94 6e 00 	call	0xdc	; 0xdc <startTone_levelComplete>
+			levelcomplete_melodiPtr++;
+ 438:	80 91 ca 00 	lds	r24, 0x00CA
+ 43c:	90 91 cb 00 	lds	r25, 0x00CB
+ 440:	01 96       	adiw	r24, 0x01	; 1
+ 442:	90 93 cb 00 	sts	0x00CB, r25
+ 446:	80 93 ca 00 	sts	0x00CA, r24
+			levelcompleteDelayPtr++;
+ 44a:	80 91 cc 00 	lds	r24, 0x00CC
+ 44e:	90 91 cd 00 	lds	r25, 0x00CD
+ 452:	02 96       	adiw	r24, 0x02	; 2
+ 454:	90 93 cd 00 	sts	0x00CD, r25
+ 458:	80 93 cc 00 	sts	0x00CC, r24
+		}
+		
+		overflow_cnt = 0;
+ 45c:	10 92 c7 00 	sts	0x00C7, r1
+ 460:	10 92 c6 00 	sts	0x00C6, r1
+ 464:	8e c0       	rjmp	.+284    	; 0x582 <__vector_11+0x1f4>
+	}
+		 
+	else if (overflow_cnt == ANTAL_OVERFLOWS_coin)
+ 466:	20 91 d3 00 	lds	r18, 0x00D3
+ 46a:	30 e0       	ldi	r19, 0x00	; 0
+ 46c:	82 17       	cp	r24, r18
+ 46e:	93 07       	cpc	r25, r19
+ 470:	09 f0       	breq	.+2      	; 0x474 <__vector_11+0xe6>
+ 472:	4b c0       	rjmp	.+150    	; 0x50a <__vector_11+0x17c>
+	{
+		if (*coin_melodiPtr == '-')
+ 474:	e0 91 d1 00 	lds	r30, 0x00D1
+ 478:	f0 91 d2 00 	lds	r31, 0x00D2
+ 47c:	80 81       	ld	r24, Z
+ 47e:	8d 32       	cpi	r24, 0x2D	; 45
+ 480:	d9 f4       	brne	.+54     	; 0x4b8 <__vector_11+0x12a>
+		{
+			stopTone_coin(*coinDelayPtr);
+ 482:	e0 91 c8 00 	lds	r30, 0x00C8
+ 486:	f0 91 c9 00 	lds	r31, 0x00C9
+ 48a:	80 81       	ld	r24, Z
+ 48c:	91 81       	ldd	r25, Z+1	; 0x01
+ 48e:	0e 94 64 00 	call	0xc8	; 0xc8 <stopTone_coin>
+			coin_melodiPtr++;
+ 492:	80 91 d1 00 	lds	r24, 0x00D1
+ 496:	90 91 d2 00 	lds	r25, 0x00D2
+ 49a:	01 96       	adiw	r24, 0x01	; 1
+ 49c:	90 93 d2 00 	sts	0x00D2, r25
+ 4a0:	80 93 d1 00 	sts	0x00D1, r24
+			coinDelayPtr++;
+ 4a4:	80 91 c8 00 	lds	r24, 0x00C8
+ 4a8:	90 91 c9 00 	lds	r25, 0x00C9
+ 4ac:	02 96       	adiw	r24, 0x02	; 2
+ 4ae:	90 93 c9 00 	sts	0x00C9, r25
+ 4b2:	80 93 c8 00 	sts	0x00C8, r24
+ 4b6:	24 c0       	rjmp	.+72     	; 0x500 <__vector_11+0x172>
+		}
+			 	 
+		else if (*coin_melodiPtr == 0)
+ 4b8:	88 23       	and	r24, r24
+ 4ba:	41 f4       	brne	.+16     	; 0x4cc <__vector_11+0x13e>
+		{
+			stopTone_coin(0);
+ 4bc:	80 e0       	ldi	r24, 0x00	; 0
+ 4be:	90 e0       	ldi	r25, 0x00	; 0
+ 4c0:	0e 94 64 00 	call	0xc8	; 0xc8 <stopTone_coin>
+			// Disable Timer0 overflow interrupt
+			TIMSK &= 0b11111110;
+ 4c4:	89 b7       	in	r24, 0x39	; 57
+ 4c6:	8e 7f       	andi	r24, 0xFE	; 254
+ 4c8:	89 bf       	out	0x39, r24	; 57
+ 4ca:	1a c0       	rjmp	.+52     	; 0x500 <__vector_11+0x172>
+		}
+			 
+		else
+		{
+			startTone_coin(*coin_melodiPtr, *coinDelayPtr);
+ 4cc:	e0 91 c8 00 	lds	r30, 0x00C8
+ 4d0:	f0 91 c9 00 	lds	r31, 0x00C9
+ 4d4:	60 81       	ld	r22, Z
+ 4d6:	71 81       	ldd	r23, Z+1	; 0x01
+ 4d8:	0e 94 1e 01 	call	0x23c	; 0x23c <startTone_coin>
+			coin_melodiPtr++;
+ 4dc:	80 91 d1 00 	lds	r24, 0x00D1
+ 4e0:	90 91 d2 00 	lds	r25, 0x00D2
+ 4e4:	01 96       	adiw	r24, 0x01	; 1
+ 4e6:	90 93 d2 00 	sts	0x00D2, r25
+ 4ea:	80 93 d1 00 	sts	0x00D1, r24
+			coinDelayPtr++;
+ 4ee:	80 91 c8 00 	lds	r24, 0x00C8
+ 4f2:	90 91 c9 00 	lds	r25, 0x00C9
+ 4f6:	02 96       	adiw	r24, 0x02	; 2
+ 4f8:	90 93 c9 00 	sts	0x00C9, r25
+ 4fc:	80 93 c8 00 	sts	0x00C8, r24
+		}
+		
+		overflow_cnt = 0;
+ 500:	10 92 c7 00 	sts	0x00C7, r1
+ 504:	10 92 c6 00 	sts	0x00C6, r1
+ 508:	3c c0       	rjmp	.+120    	; 0x582 <__vector_11+0x1f4>
+	}
+		
+	else if ( overflow_cnt == ANTAL_OVERFLOWS_reverse)
+ 50a:	21 e0       	ldi	r18, 0x01	; 1
+ 50c:	82 3c       	cpi	r24, 0xC2	; 194
+ 50e:	92 07       	cpc	r25, r18
+ 510:	c1 f5       	brne	.+112    	; 0x582 <__vector_11+0x1f4>
+	{
+		if (*reverse_melodiPtr == '-')
+ 512:	e0 91 ce 00 	lds	r30, 0x00CE
+ 516:	f0 91 cf 00 	lds	r31, 0x00CF
+ 51a:	80 81       	ld	r24, Z
+ 51c:	8d 32       	cpi	r24, 0x2D	; 45
+ 51e:	61 f4       	brne	.+24     	; 0x538 <__vector_11+0x1aa>
+		{
+			stopTone_reverse();
+ 520:	0e 94 6a 00 	call	0xd4	; 0xd4 <stopTone_reverse>
+			reverse_melodiPtr++;
+ 524:	80 91 ce 00 	lds	r24, 0x00CE
+ 528:	90 91 cf 00 	lds	r25, 0x00CF
+ 52c:	01 96       	adiw	r24, 0x01	; 1
+ 52e:	90 93 cf 00 	sts	0x00CF, r25
+ 532:	80 93 ce 00 	sts	0x00CE, r24
+ 536:	21 c0       	rjmp	.+66     	; 0x57a <__vector_11+0x1ec>
+		}
+		
+		else if (*reverse_melodiPtr == 0)
+ 538:	88 23       	and	r24, r24
+ 53a:	a1 f4       	brne	.+40     	; 0x564 <__vector_11+0x1d6>
+		{
+			reverse_melodiPtr = ReverseBeeb;					// Sæt pointeren til at pege på første plads i ReverseBeeb arrayet og start melodien forfra.
+ 53c:	8a e8       	ldi	r24, 0x8A	; 138
+ 53e:	90 e0       	ldi	r25, 0x00	; 0
+ 540:	90 93 cf 00 	sts	0x00CF, r25
+ 544:	80 93 ce 00 	sts	0x00CE, r24
+			startTone_reverse(*reverse_melodiPtr);
+ 548:	80 91 8a 00 	lds	r24, 0x008A
+ 54c:	0e 94 43 01 	call	0x286	; 0x286 <startTone_reverse>
+			reverse_melodiPtr++;								// Inkrementere det som pointeren peger på.	
+ 550:	80 91 ce 00 	lds	r24, 0x00CE
+ 554:	90 91 cf 00 	lds	r25, 0x00CF
+ 558:	01 96       	adiw	r24, 0x01	; 1
+ 55a:	90 93 cf 00 	sts	0x00CF, r25
+ 55e:	80 93 ce 00 	sts	0x00CE, r24
+ 562:	0b c0       	rjmp	.+22     	; 0x57a <__vector_11+0x1ec>
+		}
+		
+		else
+		{
+			startTone_reverse(*reverse_melodiPtr);
+ 564:	0e 94 43 01 	call	0x286	; 0x286 <startTone_reverse>
+			reverse_melodiPtr++;
+ 568:	80 91 ce 00 	lds	r24, 0x00CE
+ 56c:	90 91 cf 00 	lds	r25, 0x00CF
+ 570:	01 96       	adiw	r24, 0x01	; 1
+ 572:	90 93 cf 00 	sts	0x00CF, r25
+ 576:	80 93 ce 00 	sts	0x00CE, r24
+		}
+		overflow_cnt = 0;
+ 57a:	10 92 c7 00 	sts	0x00C7, r1
+ 57e:	10 92 c6 00 	sts	0x00C6, r1
+	}
+ 582:	ff 91       	pop	r31
+ 584:	ef 91       	pop	r30
+ 586:	bf 91       	pop	r27
+ 588:	af 91       	pop	r26
+ 58a:	9f 91       	pop	r25
+ 58c:	8f 91       	pop	r24
+ 58e:	7f 91       	pop	r23
+ 590:	6f 91       	pop	r22
+ 592:	5f 91       	pop	r21
+ 594:	4f 91       	pop	r20
+ 596:	3f 91       	pop	r19
+ 598:	2f 91       	pop	r18
+ 59a:	0f 90       	pop	r0
+ 59c:	0f be       	out	0x3f, r0	; 63
+ 59e:	0f 90       	pop	r0
+ 5a0:	1f 90       	pop	r1
+ 5a2:	18 95       	reti
+
+000005a4 <ReflectionCount>:
+
+int antal = -1;
+
+void ReflectionCount( void )
+{
+	DDRC = 0xFF;
+ 5a4:	8f ef       	ldi	r24, 0xFF	; 255
+ 5a6:	84 bb       	out	0x14, r24	; 20
+	PORTC = 0xFF;
+ 5a8:	85 bb       	out	0x15, r24	; 21
+	
+	DDRA &= 0b11110011;	// PA2 og PA3 sættes til indgang
+ 5aa:	8a b3       	in	r24, 0x1a	; 26
+ 5ac:	83 7f       	andi	r24, 0xF3	; 243
+ 5ae:	8a bb       	out	0x1a, r24	; 26
+	
+	while( PINA & 0b00000100 || PINA & 0b00001000 )
+ 5b0:	14 c0       	rjmp	.+40     	; 0x5da <ReflectionCount+0x36>
+	{
+		DetekCoin();
+ 5b2:	0e 94 bb 01 	call	0x376	; 0x376 <DetekCoin>
+		//Tæl antal én op
+		antal++;
+ 5b6:	80 91 c3 00 	lds	r24, 0x00C3
+ 5ba:	90 91 c4 00 	lds	r25, 0x00C4
+ 5be:	01 96       	adiw	r24, 0x01	; 1
+ 5c0:	90 93 c4 00 	sts	0x00C4, r25
+ 5c4:	80 93 c3 00 	sts	0x00C3, r24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 5c8:	8f e7       	ldi	r24, 0x7F	; 127
+ 5ca:	9a e1       	ldi	r25, 0x1A	; 26
+ 5cc:	a6 e0       	ldi	r26, 0x06	; 6
+ 5ce:	81 50       	subi	r24, 0x01	; 1
+ 5d0:	90 40       	sbci	r25, 0x00	; 0
+ 5d2:	a0 40       	sbci	r26, 0x00	; 0
+ 5d4:	e1 f7       	brne	.-8      	; 0x5ce <ReflectionCount+0x2a>
+ 5d6:	00 c0       	rjmp	.+0      	; 0x5d8 <ReflectionCount+0x34>
+ 5d8:	00 00       	nop
+	DDRC = 0xFF;
+	PORTC = 0xFF;
+	
+	DDRA &= 0b11110011;	// PA2 og PA3 sættes til indgang
+	
+	while( PINA & 0b00000100 || PINA & 0b00001000 )
+ 5da:	ca 99       	sbic	0x19, 2	; 25
+ 5dc:	ea cf       	rjmp	.-44     	; 0x5b2 <ReflectionCount+0xe>
+ 5de:	cb 99       	sbic	0x19, 3	; 25
+ 5e0:	e8 cf       	rjmp	.-48     	; 0x5b2 <ReflectionCount+0xe>
+		DetekCoin();
+		//Tæl antal én op
+		antal++;
+		_delay_us(2000000);	
+	}
+}
+ 5e2:	08 95       	ret
+
+000005e4 <DriveForward1>:
+
+void DriveForward1( void )
+{
+	
+	DDRD = 0xFF;
+ 5e4:	8f ef       	ldi	r24, 0xFF	; 255
+ 5e6:	81 bb       	out	0x11, r24	; 17
+	PORTD = 0b10000000;
+ 5e8:	80 e8       	ldi	r24, 0x80	; 128
+ 5ea:	82 bb       	out	0x12, r24	; 18
+	OCR2 = 128; // 50 %
+ 5ec:	83 bd       	out	0x23, r24	; 35
+	/*
+	DDRD |= 0b11000000;
+	PORTD |= 0b10000000;
+	OCR2 = 128;
+	*/
+}
+ 5ee:	08 95       	ret
+
+000005f0 <DriveForward2>:
+	DDRD = 0xFF;
+	PORTD = 0b10000000;
+	OCR2 = 179; // 30 %
+	*/
+	
+	DDRD |= 0b11000000;
+ 5f0:	81 b3       	in	r24, 0x11	; 17
+ 5f2:	80 6c       	ori	r24, 0xC0	; 192
+ 5f4:	81 bb       	out	0x11, r24	; 17
+	PORTD |= 0b10000000; 
+ 5f6:	97 9a       	sbi	0x12, 7	; 18
+	
+	OCR2 = 179;
+ 5f8:	83 eb       	ldi	r24, 0xB3	; 179
+ 5fa:	83 bd       	out	0x23, r24	; 35
+}
+ 5fc:	08 95       	ret
+
+000005fe <Brake>:
+
+void Brake( void )			
+{
+	
+	DDRD = 0xFF;
+ 5fe:	8f ef       	ldi	r24, 0xFF	; 255
+ 600:	81 bb       	out	0x11, r24	; 17
+	OCR2 = 255; // ((255-255)/255)*100 = 
+ 602:	83 bd       	out	0x23, r24	; 35
+	
+	/*
+	DDRD |= 0b11000000;
+	OCR2 = 255;
+	*/
+}	
+ 604:	08 95       	ret
+
+00000606 <Reverse>:
+
+void Reverse( void )
+{	
+	
+	DDRD = 0xFF;
+ 606:	8f ef       	ldi	r24, 0xFF	; 255
+ 608:	81 bb       	out	0x11, r24	; 17
+	PORTD = 0xFF;
+ 60a:	82 bb       	out	0x12, r24	; 18
+
+	OCR2 = 30; //((255-178)/255)*100 = 30,196
+ 60c:	8e e1       	ldi	r24, 0x1E	; 30
+ 60e:	83 bd       	out	0x23, r24	; 35
+	DDRD |= 0b11000000;
+	PORTD |= 0b11000000;
+	
+	OCR2 = 179;
+	*/
+}
+ 610:	08 95       	ret
+
+00000612 <initTimer0>:
+void initTimer0( void )
+{
+	// Timer0: PWM Mode, Clock = 3,6864 MHz/1024 = 3600 Hz
+	// => Overflow frekvens = 3600 Hz / 8 = 450 Hz
+	// Prescaler 1
+	TCCR0 = 0b01100001;
+ 612:	81 e6       	ldi	r24, 0x61	; 97
+ 614:	83 bf       	out	0x33, r24	; 51
+	//Timer0 ikke-fast PWM mode, compare match set when up counting
+}
+ 616:	08 95       	ret
+
+00000618 <initTimer1>:
+
+
+void initTimer1( void )
+{
+	// CTC mode (mode 4), OC1A:"Normal port operation"
+	TCCR1A = 0b00000000;
+ 618:	1f bc       	out	0x2f, r1	; 47
+	// Prescaler = 1 (timer 1 clock = 3,6864 MHz)
+	TCCR1B = 0b00001001;
+ 61a:	89 e0       	ldi	r24, 0x09	; 9
+ 61c:	8e bd       	out	0x2e, r24	; 46
+	// Ben OC1A (= PORTD bit 5) sættes til udgang
+	
+	DDRD |= 0b00110000;
+ 61e:	81 b3       	in	r24, 0x11	; 17
+ 620:	80 63       	ori	r24, 0x30	; 48
+ 622:	81 bb       	out	0x11, r24	; 17
+}
+ 624:	08 95       	ret
+
+00000626 <initTimer2>:
+void initTimer2( void )
+{
+	// PWM Phase correct.
+	// Set OC2 on compare match when up-counting. Clear OC2 downcounting.
+	// Prescaling 256.
+	TCCR2 = 0b01110100;
+ 626:	84 e7       	ldi	r24, 0x74	; 116
+ 628:	85 bd       	out	0x25, r24	; 37
+}
+ 62a:	08 95       	ret
+
+0000062c <main>:
+
+
+int main(void)
+{
+	initTimer0();
+ 62c:	0e 94 09 03 	call	0x612	; 0x612 <initTimer0>
+	initTimer1();
+ 630:	0e 94 0c 03 	call	0x618	; 0x618 <initTimer1>
+	initTimer2();
+ 634:	0e 94 13 03 	call	0x626	; 0x626 <initTimer2>
+	initSwitchPort();
+ 638:	0e 94 5c 03 	call	0x6b8	; 0x6b8 <initSwitchPort>
+	sei();
+ 63c:	78 94       	sei
+	
+    while(1)
+    {
+			do
+			{
+				ReflectionCount();
+ 63e:	0e 94 d2 02 	call	0x5a4	; 0x5a4 <ReflectionCount>
+				DriveForward1();
+ 642:	0e 94 f2 02 	call	0x5e4	; 0x5e4 <DriveForward1>
+				{
+					DetekCoin();
+				}
+				*/
+
+				if( antal == 3 )	// Brems ved bakken.
+ 646:	80 91 c3 00 	lds	r24, 0x00C3
+ 64a:	90 91 c4 00 	lds	r25, 0x00C4
+ 64e:	83 30       	cpi	r24, 0x03	; 3
+ 650:	91 05       	cpc	r25, r1
+ 652:	11 f4       	brne	.+4      	; 0x658 <main+0x2c>
+				{
+					Brake();
+ 654:	0e 94 ff 02 	call	0x5fe	; 0x5fe <Brake>
+				}
+	        
+				if( antal == 6 )	// Bremse og bak.
+ 658:	80 91 c3 00 	lds	r24, 0x00C3
+ 65c:	90 91 c4 00 	lds	r25, 0x00C4
+ 660:	86 30       	cpi	r24, 0x06	; 6
+ 662:	91 05       	cpc	r25, r1
+ 664:	69 f4       	brne	.+26     	; 0x680 <main+0x54>
+				{
+					Brake();
+ 666:	0e 94 ff 02 	call	0x5fe	; 0x5fe <Brake>
+ 66a:	8f e3       	ldi	r24, 0x3F	; 63
+ 66c:	92 e4       	ldi	r25, 0x42	; 66
+ 66e:	af e0       	ldi	r26, 0x0F	; 15
+ 670:	81 50       	subi	r24, 0x01	; 1
+ 672:	90 40       	sbci	r25, 0x00	; 0
+ 674:	a0 40       	sbci	r26, 0x00	; 0
+ 676:	e1 f7       	brne	.-8      	; 0x670 <main+0x44>
+ 678:	00 c0       	rjmp	.+0      	; 0x67a <main+0x4e>
+ 67a:	00 00       	nop
+					_delay_us(5000000);
+					Reverse();
+ 67c:	0e 94 03 03 	call	0x606	; 0x606 <Reverse>
+				}
+	        
+				if( antal == 8 )	// Når den holder ved refleksbrik nr 5.
+ 680:	80 91 c3 00 	lds	r24, 0x00C3
+ 684:	90 91 c4 00 	lds	r25, 0x00C4
+ 688:	88 30       	cpi	r24, 0x08	; 8
+ 68a:	91 05       	cpc	r25, r1
+ 68c:	59 f4       	brne	.+22     	; 0x6a4 <main+0x78>
+				{
+					Brake();
+ 68e:	0e 94 ff 02 	call	0x5fe	; 0x5fe <Brake>
+ 692:	8f e3       	ldi	r24, 0x3F	; 63
+ 694:	92 e4       	ldi	r25, 0x42	; 66
+ 696:	af e0       	ldi	r26, 0x0F	; 15
+ 698:	81 50       	subi	r24, 0x01	; 1
+ 69a:	90 40       	sbci	r25, 0x00	; 0
+ 69c:	a0 40       	sbci	r26, 0x00	; 0
+ 69e:	e1 f7       	brne	.-8      	; 0x698 <main+0x6c>
+ 6a0:	00 c0       	rjmp	.+0      	; 0x6a2 <main+0x76>
+ 6a2:	00 00       	nop
+					_delay_us(5000000);
+				}
+			
+			} while ( antal >=0 && antal <=11 );
+ 6a4:	80 91 c3 00 	lds	r24, 0x00C3
+ 6a8:	90 91 c4 00 	lds	r25, 0x00C4
+ 6ac:	8c 30       	cpi	r24, 0x0C	; 12
+ 6ae:	91 05       	cpc	r25, r1
+ 6b0:	30 f2       	brcs	.-116    	; 0x63e <main+0x12>
+		
+			Brake();		
+ 6b2:	0e 94 ff 02 	call	0x5fe	; 0x5fe <Brake>
+    }
+ 6b6:	c3 cf       	rjmp	.-122    	; 0x63e <main+0x12>
+
+000006b8 <initSwitchPort>:
+
+// Klargør switch-porten
+void initSwitchPort()
+{
+  // Switch-port = All inputs
+  DDRA = PINA & 0b11011111;
+ 6b8:	89 b3       	in	r24, 0x19	; 25
+ 6ba:	8f 7d       	andi	r24, 0xDF	; 223
+ 6bc:	8a bb       	out	0x1a, r24	; 26
+}
+ 6be:	08 95       	ret
+
+000006c0 <switchStatus>:
+
+// Læser alle switches samtidigt
+unsigned char switchStatus()
+{
+  return (~PINA);
+ 6c0:	89 b3       	in	r24, 0x19	; 25
+}
+ 6c2:	80 95       	com	r24
+ 6c4:	08 95       	ret
+
+000006c6 <switchOn>:
+// Returnerer TRUE, hvis switchen med nummeret
+// "switch_nr" er aktiveret - ellers returneres FALSE
+unsigned char switchOn(unsigned char switch_nr)
+{
+unsigned char mask;
+  if (switch_nr <= MAX_SWITCH_NR)
+ 6c6:	88 30       	cpi	r24, 0x08	; 8
+ 6c8:	70 f4       	brcc	.+28     	; 0x6e6 <switchOn+0x20>
+  {
+    mask = 0b00000001 << switch_nr;
+    return (~PINA & mask);
+ 6ca:	49 b3       	in	r20, 0x19	; 25
+unsigned char switchOn(unsigned char switch_nr)
+{
+unsigned char mask;
+  if (switch_nr <= MAX_SWITCH_NR)
+  {
+    mask = 0b00000001 << switch_nr;
+ 6cc:	21 e0       	ldi	r18, 0x01	; 1
+ 6ce:	30 e0       	ldi	r19, 0x00	; 0
+ 6d0:	b9 01       	movw	r22, r18
+ 6d2:	02 c0       	rjmp	.+4      	; 0x6d8 <switchOn+0x12>
+ 6d4:	66 0f       	add	r22, r22
+ 6d6:	77 1f       	adc	r23, r23
+ 6d8:	8a 95       	dec	r24
+ 6da:	e2 f7       	brpl	.-8      	; 0x6d4 <switchOn+0xe>
+ 6dc:	cb 01       	movw	r24, r22
+    return (~PINA & mask);
+ 6de:	94 2f       	mov	r25, r20
+ 6e0:	90 95       	com	r25
+ 6e2:	89 23       	and	r24, r25
+ 6e4:	08 95       	ret
+  }
+  else
+    return 0;
+ 6e6:	80 e0       	ldi	r24, 0x00	; 0
+ 6e8:	08 95       	ret
+
+000006ea <_exit>:
+ 6ea:	f8 94       	cli
+
+000006ec <__stop_program>:
+ 6ec:	ff cf       	rjmp	.-2      	; 0x6ec <__stop_program>
